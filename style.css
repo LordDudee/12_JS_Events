@@ -8,4 +8,28 @@ button {
     margin-top: 20px;
     }
 
+/** Night Modus **/
+body.night{
+    background-color: black;
+}
 
+h1.night{
+    color: white;
+}
+
+p.night{
+    color: white;
+} 
+
+/** Day Modus **/
+body.day{
+    background-color: white;
+}
+
+h1.day{
+    color: black;
+}
+
+p.day{
+    color: black;
+}

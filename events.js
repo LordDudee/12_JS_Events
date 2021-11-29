@@ -2,35 +2,56 @@
 /********  Variablen **********/
 
 const btn = document.getElementById("trigBtn");
-// const btn = document.body.children[0];
-
+let appStatus = true;
+output(appStatus);
 
 /********  Event-Listener **********/
 
-btn.addEventListener("click",onClick);
-btn.addEventListener("mouseenter",onRollIn);
-btn.addEventListener("mouseleave",onRollOut);
+// Webseite geladen --> auf (Anfangs)-Zustand umschalten
+window.addEventListener("load",toggleAppStatus);
 
-function onClick() {
-    output("clicked");
-}
+btn.addEventListener("click",toggleAppStatus);
 
-function onRollIn() {
-    output("rolled in");
-}
-
-function onRollOut() {
-    output("rolled out");
-}
 
 
 /********  Business-Logic | Toggle **********/
 
-
+function toggleAppStatus() {
+    appStatus = !appStatus;
+    updateView();
+}
 
 /********  Änderung in View-Schicht **********/
 
+// Modul: Update der View-Schicht | Test:
+// .. View folgt status
 
+function updateView() {
+    if (appStatus) {
+        switchClassName("night");
+        switchBtnTxt("day");
+    } else {
+        switchClassName("day");
+        switchBtnTxt("night");
+    }
+}
+
+// Modul: Umschaltung Klassennamen | Test:
+// switchClassName("night");
+// switchClassName("day");
+
+function switchClassName(modeStr) {
+    document.body.className = modeStr;
+    document.body.children[0].className = modeStr;
+    document.body.children[1].className = modeStr;
+}
+
+// Modul: Umschaltung BtnTxt | Test:
+// switchBtnTxt("night");
+// switchBtnTxt("day");
+function switchBtnTxt(modeStr) {
+    btn.innerHTML = modeStr;
+    }
 
 /* Tools */
 function output(outputData) {
