@@ -10,6 +10,7 @@ output(appStatus);
 // Webseite geladen --> auf (Anfangs)-Zustand umschalten
 window.addEventListener("load",toggleAppStatus);
 
+// Klich auf Btn --> Zustand umschalten
 btn.addEventListener("click",toggleAppStatus);
 
 
